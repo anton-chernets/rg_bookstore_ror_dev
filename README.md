@@ -51,7 +51,7 @@ brew services start postgresql
 Final Steps
 ````
 rails new bookstore
-rails new myapp -d postgresql
+rails new bookstore -d postgresql
 cd bookstore
 rake db:create
 rails server
