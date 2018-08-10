@@ -154,6 +154,8 @@ gem 'devise'
 $ bundle
 $ rails generate devise:install
 $ rails generate devise User
+$ rake db:migrate
+$ rails generate devise:views
 ````
 
 Info
