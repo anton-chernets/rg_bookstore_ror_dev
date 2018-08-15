@@ -139,7 +139,7 @@ feature 'Registration' do
 end
 ````
 
-Запускаем тест (не запустился)
+Запускаем тест и он падает - не нашел маршрут
 ````
 $ rspec spec/features/registration_spec.rb
 ````
@@ -156,7 +156,26 @@ $ rails generate devise:install
 $ rails generate devise User
 $ rake db:migrate
 $ rails generate devise:views
+$ bundle install
 ````
+
+work vs http://localhost:3000/users/sign_up
+work vs http://localhost:3000/users/sign_in
+
+Add routes.rb
+``````
+  devise_scope :user do
+    get "/sign_in" => "devise/sessions#new" # custom path to login/sign_in
+    get "/sign_up" => "devise/registrations#new", as: "registration" # custom path to sign_up/registration
+  end
+``````
+
+Запускаем тест и он падает - не нашел контент
+
+
+
+add /app/assets/images/fb-icon.jpg for auth social
+
 
 Info
 Some core gems usage:
