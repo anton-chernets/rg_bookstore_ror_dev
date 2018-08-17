@@ -158,21 +158,41 @@ $ rake db:migrate
 $ rails generate devise:views
 $ bundle install
 ````
-
+стандартные пути
 work vs http://localhost:3000/users/sign_up
 work vs http://localhost:3000/users/sign_in
 
-Add routes.rb
+делаю дальше по слайдам  BDD только вьюхи haml
 ``````
-  devise_scope :user do
-    get "/sign_in" => "devise/sessions#new" # custom path to login/sign_in
-    get "/sign_up" => "devise/registrations#new", as: "registration" # custom path to sign_up/registration
+$ gem "haml-rails"
+$ rails generate haml:application_layout convert
+$ rake haml:erb2haml
+``````
+
+Add /app/helpers/application_helper.rb
+``````
+module ApplicationHelper
+  def resource_name
+    :user
   end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+end
+
 ``````
 
-Запускаем тест и он падает - не нашел контент
-
-
+тест вьюхи проходит
+``````
+$ rspec spec/views/users/new_spec.rb
+``````
+мой путь рег
+http://localhost:3000/users/register
 
 add /app/assets/images/fb-icon.jpg for auth social
 
@@ -182,3 +202,4 @@ Some core gems usage:
 
 * RSpec
 * Devise
+* haml-rails
