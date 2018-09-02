@@ -187,15 +187,15 @@ end
 
 ``````
 
-тест вьюхи проходит
+тест вьюхи не проходит
 ``````
 $ rspec spec/views/users/new_spec.rb
 ``````
-мой путь рег
-http://localhost:3000/users/register
 
-add /app/assets/images/fb-icon.jpg for auth social
-
+``````
+rspec spec/models/user_spec.rb
+``````
+Вкинул в /device шаблоны с layout
 
 Info
 Some core gems usage:
