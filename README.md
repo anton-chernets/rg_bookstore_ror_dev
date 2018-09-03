@@ -197,6 +197,8 @@ rspec spec/models/user_spec.rb
 ``````
 Вкинул в /device шаблоны с layout
 
+поменял главную страницу на home/index
+
 Info
 Some core gems usage:
 
