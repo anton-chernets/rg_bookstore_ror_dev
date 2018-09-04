@@ -212,7 +212,13 @@ $bundle install
 $bundle update
 ``````
 
-add models
+создал модели models
+
+``````
+gem 'aasm'
+$bundle install
+$bundle update
+``````
 
 !logout
 
@@ -222,4 +228,5 @@ Some core gems usage:
 * RSpec
 * Devise
 * haml-rails
-* cancancan
+* CanCanCan
+* AASM
