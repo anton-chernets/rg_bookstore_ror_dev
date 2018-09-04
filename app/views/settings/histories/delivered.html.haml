@@ -1,9 +1,0 @@
-- title t('history.delivered')
-
-= render layout: 'layouts/settings' do
-
-  - if @orders.empty?
-    %h2= t('history.delivered_empty')
-  - else
-    %h2= t('history.delivered')
-    = render 'settings/histories/orders_view'

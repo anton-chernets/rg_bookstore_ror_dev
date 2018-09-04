@@ -1,1 +1,0 @@
-Shopper::Order.send(:paginates_per, 2)
