@@ -199,6 +199,14 @@ rspec spec/models/user_spec.rb
 
 поменял главную страницу на home/index
 
+все миграции
+``````
+bin/rails generate migration create_categories
+rake db:migrate
+``````
+
+!logout
+
 Info
 Some core gems usage:
 
