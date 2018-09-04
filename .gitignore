@@ -9,24 +9,9 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/tmp/*
 !/log/.keep
-!/tmp/.keep
+/tmp
+/public/uploads/*
+/.idea
 
-# Ignore uploaded files in development
-/storage/*
-!/storage/.keep
-
-/node_modules
-/yarn-error.log
-
-/public/assets
-.byebug_history
-
-# Ignore master key for decrypting credentials and more.
-/config/master.key
-
-/.idea/
-/tmp/
-/vendor/
 .DS_Store

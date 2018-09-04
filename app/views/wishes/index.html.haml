@@ -1,0 +1,18 @@
+- title t('wishes.name')
+
+%h1.page-header= t('wishes.name')
+
+- if @user.wishes.empty?
+  .wishes-for
+    = (current_user.id == @user.id) ? t('wishes.my_empty') : t('wishes.user_empty', user: @user)
+- else
+  .wishes-for
+    = (current_user.id == @user.id) ? t('wishes.my_wishes') : t('wishes.user_wishes', user: @user)
+
+  %ul.list-unstyled.wishes-list
+    - @user.wishes.each do |w|
+      %li
+        = link_to w.book, w.book
+        - if can?(:destroy, w)
+          = form_tag wish_path(w), method: :delete do
+            = button_tag t('wishes.remove'), name: nil, class: 'btn btn-warning'

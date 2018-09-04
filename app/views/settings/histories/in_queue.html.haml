@@ -1,0 +1,9 @@
+- title t('history.in_queue')
+
+= render layout: 'layouts/settings' do
+
+  - if @orders.empty?
+    %h2= t('history.in_queue_empty')
+  - else
+    %h2= t('history.in_queue')
+    = render 'settings/histories/orders_view'

@@ -1,0 +1,12 @@
+- @orders.each do |o|
+
+  %h3= o
+
+  = render partial: 'shopper/cart/cart_items', locals: { items: o.order_items, edit: false }
+  = render partial: 'shopper/helpers/order', locals: { order: o, edit: false }
+
+  %hr.top-buffer
+
+.text-center
+  = paginate @orders
+  = page_entries_info @orders
