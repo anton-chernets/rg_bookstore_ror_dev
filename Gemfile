@@ -40,6 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml-rails'
 gem 'devise'
 gem 'cancancan'
+gem 'carrierwave'
 gem 'aasm'
 
 group :development, :test do

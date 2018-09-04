@@ -219,6 +219,15 @@ gem 'aasm'
 $bundle install
 $bundle update
 ``````
+создал сервисы
+
+``````
+gem 'carrierwave'
+$bundle install
+$bundle update
+``````
+
+создал загрузчики
 
 !logout
 
@@ -229,4 +238,5 @@ Some core gems usage:
 * Devise
 * haml-rails
 * CanCanCan
+* CarrierWave
 * AASM
