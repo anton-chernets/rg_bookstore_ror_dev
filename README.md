@@ -193,7 +193,7 @@ $ rspec spec/views/users/new_spec.rb
 ``````
 
 ``````
-rspec spec/models/user_spec.rb
+$ rspec spec/models/user_spec.rb
 ``````
 Вкинул в /device шаблоны с layout
 
@@ -201,9 +201,18 @@ rspec spec/models/user_spec.rb
 
 все миграции
 ``````
-bin/rails generate migration create_categories
-rake db:migrate
+$ bin/rails generate migration create_categories
+$ rake db:migrate
 ``````
+
+авторизация
+``````
+gem 'cancancan'
+$bundle install
+$bundle update
+``````
+
+add models
 
 !logout
 
@@ -213,3 +222,4 @@ Some core gems usage:
 * RSpec
 * Devise
 * haml-rails
+* cancancan
