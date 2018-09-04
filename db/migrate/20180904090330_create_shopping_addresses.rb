@@ -1,7 +1,6 @@
-# This migration comes from shopper (originally 20150913110012)
-class CreateShopperAddresses < ActiveRecord::Migration[5.2]
+class CreateShoppingAddresses < ActiveRecord::Migration[5.2]
   def change
-    create_table :shopper_addresses do |t|
+    create_table :shopping_addresses do |t|
       t.string :first_name, null: false
       t.string :last_name, null: false
       t.string :street, null: false
@@ -18,6 +17,6 @@ class CreateShopperAddresses < ActiveRecord::Migration[5.2]
       t.timestamps null: false
     end
 
-    add_index :shopper_addresses, [:addressable_id, :addressable_type, :type], name: 'address_addressable_id_addressable_type_type'
+    add_index :shopping_addresses, [:addressable_id, :addressable_type, :type], name: 'address_addressable_id_addressable_type_type'
   end
 end

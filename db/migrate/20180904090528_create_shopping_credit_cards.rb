@@ -1,7 +1,7 @@
 # This migration comes from shopper (originally 20150913110427)
-class CreateShopperCreditCards < ActiveRecord::Migration[5.2]
+class CreateShoppingCreditCards < ActiveRecord::Migration[5.2]
   def change
-    create_table :shopper_credit_cards do |t|
+    create_table :shopping_credit_cards do |t|
       t.string :number, null: false
       t.integer :expiration_month, null: false
       t.integer :expiration_year, null: false

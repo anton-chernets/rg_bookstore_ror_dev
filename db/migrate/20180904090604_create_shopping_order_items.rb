@@ -1,7 +1,6 @@
-# This migration comes from shopper (originally 20150913110730)
-class CreateShopperOrderItems < ActiveRecord::Migration[5.2]
+class CreateShoppingOrderItems < ActiveRecord::Migration[5.2]
   def change
-    create_table :shopper_order_items do |t|
+    create_table :shopping_order_items do |t|
       t.integer :quantity, null: false
 
       t.string :product_type, null: false
@@ -12,6 +11,6 @@ class CreateShopperOrderItems < ActiveRecord::Migration[5.2]
       t.timestamps null: false
     end
 
-    add_index :shopper_order_items, [:product_type, :product_id]
+    add_index :shopping_order_items, [:product_type, :product_id]
   end
 end

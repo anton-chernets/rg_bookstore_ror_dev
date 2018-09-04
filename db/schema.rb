@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2018_09_04_091504) do
   create_table "authors", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
+    t.string "portrait"
     t.text "biography"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "portrait"
   end
 
   create_table "books", force: :cascade do |t|
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2018_09_04_091504) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "shopper_addresses", force: :cascade do |t|
+  create_table "shopping_addresses", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "street", null: false
@@ -72,17 +72,17 @@ ActiveRecord::Schema.define(version: 2018_09_04_091504) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["addressable_id", "addressable_type", "type"], name: "address_addressable_id_addressable_type_type"
-    t.index ["country_id"], name: "index_shopper_addresses_on_country_id"
+    t.index ["country_id"], name: "index_shopping_addresses_on_country_id"
   end
 
-  create_table "shopper_countries", force: :cascade do |t|
+  create_table "shopping_countries", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_shopper_countries_on_name", unique: true
+    t.index ["name"], name: "index_shopping_countries_on_name", unique: true
   end
 
-  create_table "shopper_credit_cards", force: :cascade do |t|
+  create_table "shopping_credit_cards", force: :cascade do |t|
     t.string "number", null: false
     t.integer "expiration_month", null: false
     t.integer "expiration_year", null: false
@@ -90,37 +90,37 @@ ActiveRecord::Schema.define(version: 2018_09_04_091504) do
     t.integer "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_shopper_credit_cards_on_order_id"
+    t.index ["order_id"], name: "index_shopping_credit_cards_on_order_id"
   end
 
-  create_table "shopper_deliveries", force: :cascade do |t|
+  create_table "shopping_deliveries", force: :cascade do |t|
     t.string "name", null: false
     t.float "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "shopper_order_items", force: :cascade do |t|
+  create_table "shopping_order_items", force: :cascade do |t|
     t.integer "quantity", null: false
     t.string "product_type", null: false
     t.integer "product_id", null: false
     t.integer "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_shopper_order_items_on_order_id"
-    t.index ["product_type", "product_id"], name: "index_shopper_order_items_on_product_type_and_product_id"
+    t.index ["order_id"], name: "index_shopping_order_items_on_order_id"
+    t.index ["product_type", "product_id"], name: "index_shopping_order_items_on_product_type_and_product_id"
   end
 
-  create_table "shopper_orders", force: :cascade do |t|
+  create_table "shopping_orders", force: :cascade do |t|
     t.integer "state", null: false
     t.integer "customer_id"
     t.string "customer_type"
     t.integer "delivery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id", "customer_type"], name: "index_shopper_orders_on_customer_id_and_customer_type"
-    t.index ["delivery_id"], name: "index_shopper_orders_on_delivery_id"
-    t.index ["state"], name: "index_shopper_orders_on_state"
+    t.index ["customer_id", "customer_type"], name: "index_shopping_orders_on_customer_id_and_customer_type"
+    t.index ["delivery_id"], name: "index_shopping_orders_on_delivery_id"
+    t.index ["state"], name: "index_shopping_orders_on_state"
   end
 
   create_table "users", force: :cascade do |t|

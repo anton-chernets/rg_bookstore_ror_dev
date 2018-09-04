@@ -226,8 +226,37 @@ gem 'carrierwave'
 $bundle install
 $bundle update
 ``````
-
 создал загрузчики
+
+``````
+rake db:migrate:status
+bin/rails db:rollback STEP=16
+``````
+
+``````
+DELETE FROM public.schema_migrations
+	WHERE version = '20180904085442';
+``````
+``````
+bin/rails db:rollback STEP=7
+``````
+``````
+DELETE FROM public.schema_migrations
+	WHERE version = '20180904075207';
+DELETE FROM public.schema_migrations
+	WHERE version = '20180904075022';
+``````
+``````
+bin/rails db:rollback STEP=3
+``````
+удалил index из миграции страны
+``````
+bin/rails db:rollback STEP=1
+``````
+``````
+$ rake db:migrate
+``````
+
 
 !logout
 
