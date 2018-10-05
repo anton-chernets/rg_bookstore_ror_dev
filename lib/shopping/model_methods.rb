@@ -5,7 +5,7 @@ module Shopping
     module ClassMethods
       def register_as_product
         class_name = self.to_s.underscore
-        Shopper::PRODUCT_CLASSES.push(class_name).uniq!
+        Shopping::PRODUCT_CLASSES.push(class_name).uniq!
 
         extend_product(self)
       end
@@ -24,7 +24,7 @@ module Shopping
 
           scope :best_sellers, -> (num = 3) do
             self
-                .select("#{self.table_name}.*, sum(shopper_order_items.quantity) as q")
+                .select("#{self.table_name}.*, sum(shopping_order_items.quantity) as q")
                 .joins(:order_items)
                 .group(:id)
                 .order('q DESC')
@@ -33,7 +33,7 @@ module Shopping
         end
 
         product_class.send(:has_many, :order_items, {
-            class_name: 'Shopper::OrderItem',
+            class_name: 'Shopping::OrderItem',
             as: :product,
             dependent: :destroy
         })
@@ -41,7 +41,7 @@ module Shopping
 
       def extend_customer(customer_class)
         customer_class.send(:has_many, :orders, {
-            class_name: 'Shopper::Order',
+            class_name: 'Shopping::Order',
             as: :customer,
             dependent: :nullify
         })

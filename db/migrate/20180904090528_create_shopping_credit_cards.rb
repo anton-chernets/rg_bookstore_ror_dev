@@ -1,4 +1,4 @@
-# This migration comes from shopper (originally 20150913110427)
+# This migration comes from shopping (originally 20150913110427)
 class CreateShoppingCreditCards < ActiveRecord::Migration[5.2]
   def change
     create_table :shopping_credit_cards do |t|

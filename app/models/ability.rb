@@ -12,9 +12,9 @@ class Ability
       else
         can %i(create read), Wish
         can :destroy, Wish, user_id: user.id
-        can :rud, [Shopper::BillingAddress, Shopper::ShippingAddress], addressable_type: 'User', addressable_id: user.id
-        can :create, Shopper::BillingAddress unless user.billing_address.present? && user.billing_address.id
-        can :create, Shopper::ShippingAddress unless user.shipping_address.present? && user.shipping_address.id
+        can :rud, [Shopping::BillingAddress, Shopping::ShippingAddress], addressable_type: 'User', addressable_id: user.id
+        can :create, Shopping::BillingAddress unless user.billing_address.present? && user.billing_address.id
+        can :create, Shopping::ShippingAddress unless user.shipping_address.present? && user.shipping_address.id
         can :rud, User, id: user.id
         can :update_info, User, id: user.id
         can :update_password, User, id: user.id

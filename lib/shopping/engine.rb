@@ -4,10 +4,10 @@ module Shopping
 
     config.generators do |g|
       g.test_framework :rspec
-      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      # g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
 
-    initializer 'shopper' do
+    initializer 'shopping' do
       ActiveSupport.on_load :active_record do
         ActiveRecord::Base.include Shopping::ModelMethods
       end

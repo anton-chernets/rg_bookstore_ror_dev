@@ -39,6 +39,6 @@ end
 
 require 'aasm'
 require 'wicked'
-require 'shopper/model_methods'
-require 'shopper/controller_methods'
-require 'shopper/engine'
+require 'shopping/model_methods'
+require 'shopping/controller_methods'
+require 'shopping/engine'

@@ -1,0 +1,72 @@
+- title t('book.title_single', book: @book)
+
+.book-page
+  %h1= @book
+
+  .clearfix.book-top-info
+    .pull-left.book-cover
+      %img{src: @book.cover.url}
+
+    .pull-left.book-short-info
+
+      .author
+        %strong.caption
+          = t 'book.author'
+        = link_to @book.author, @book.author
+
+      .price
+        %strong.caption
+          = t 'book.price'
+        #{beauty_price(@book.price)}#{t('currancy')}
+
+      .rating
+        - if @book.average_rating > 0
+          - @book.average_rating.times do
+            = glyph_icon(:star)
+
+      .add-to-cart
+        = render partial: 'shopping/products/add_to_cart', locals: { product: @book }
+
+      .wish-list
+        - if @wish
+          = form_tag wish_path(@wish), method: :delete do
+            .form-group
+              = button_tag t('wishes.remove'), name: nil, class: 'btn btn-warning'
+        - else
+          = form_tag book_wishes_path(@book) do
+            .form-group
+              = button_tag t('wishes.add'), name: nil, class: 'btn btn-success'
+
+      .short-description
+        = @book.short_description
+
+  .full-description
+    = @book.full_description.html_safe
+
+  .reviews
+    %h3= t 'review.reviews'
+
+    .add_new
+      - if current_user
+        - if current_user.is_left_review?(@book)
+          = t 'review.review_left'
+        - else
+          = link_to t('review.add_new'), new_book_review_path(@book)
+      - else
+        = t 'review.not_singed_in'
+        = link_to t('auth.sign_in'), new_session_path(resource_name)
+
+    %ul.reviews-list.list-unstyled
+      - @book.reviews.approved.each_with_index do |review, index|
+        - if index > 4
+          %li
+            = link_to t('review.read_more'), book_reviews_path(@book)
+          - break
+        %li.review
+          .r
+            - review.rating.times do
+              = glyph_icon(:star)
+          .by
+            = t 'review.left_by', name: review.user
+          .note
+            = review.note

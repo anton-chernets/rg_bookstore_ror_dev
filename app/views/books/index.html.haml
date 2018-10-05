@@ -1,0 +1,9 @@
+- title t('book.title_list')
+
+%h1= t('shop')
+
+.shop-page.clearfix
+  .left
+    = render partial: 'books/books_list', locals: { books: @books }
+  .right
+    = render partial: 'categories/categories_list', locals: { categories: @categories }

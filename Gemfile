@@ -38,10 +38,18 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # for bookstore gems
 gem 'haml-rails'
+gem 'omniauth-facebook'
+gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
 gem 'devise'
 gem 'cancancan'
 gem 'carrierwave'
 gem 'aasm'
+
+gem 'wysiwyg-rails'
+gem 'mini_magick'
+gem 'wicked'
+gem 'twitter-bootstrap-rails'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
